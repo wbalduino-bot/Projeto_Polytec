@@ -1,0 +1,103 @@
+# Projeto Polytec
+
+Sistema completo de gestão de boletos e usuários com painel administrativo, autenticação JWT, notificações push, permissões por módulo e logs de auditoria.
+
+---
+
+## 🧩 Funcionalidades
+
+- ✅ Autenticação com JWT e persistência via localStorage
+- ✅ Painel administrativo com gráficos, filtros, edição, exclusão, paginação e exportação CSV
+- ✅ Notificações push com Service Worker e VAPID
+- ✅ Controle de permissões por tipo de usuário e módulo
+- ✅ Logs de auditoria com Winston
+- ✅ Estrutura modular e escalável para frontend e backend
+
+---
+
+## 📁 Estrutura do Projeto
+
+### Frontend (`/frontend`)
+
+
+## 🚀 Como rodar o projeto
+
+### Backend
+```bash
+cd backend
+npm install
+npm start
+
+
+cd frontend
+npm install
+npm run dev
+
+
+🔐 Chaves VAPID para notificações
+Como Gerar Chave
+npx web-push generate-vapid-keys
+
+add no arquivo .env:
+VAPID_PUBLIC_KEY=...
+VAPID_PRIVATE_KEY=...
+
+VAPID_PUBLIC_KEY=...
+VAPID_PRIVATE_KEY=...
+
+📬 Notificações Push
+Service Worker: public/sw.js
+
+Inscrição enviada após login
+
+Backend envia via notificacaoService.js
+
+🛡️ Permissões por módulo
+Middleware: middlewares/permissaoMiddleware.js
+
+Define acesso por tipo de usuário e módulo
+
+Exemplo: admin acessa usuarios, boletos, estatisticas; comum acessa apenas boletos
+
+📝 Logs de Auditoria
+Registrados via logs/auditLogger.js
+
+Armazenados em logs/audit.log
+
+Exemplo: edição ou exclusão de usuário
+
+📊 Painel Administrativo
+Gráfico de pizza com proporção de usuários
+
+Filtro de busca por nome/email
+
+Edição inline de nome e tipo
+
+Exclusão com confirmação
+
+Paginação (5 por página)
+
+Ordenação por coluna
+
+Exportação para CSV
+
+🧠 Tecnologias utilizadas
+React + React Router + Context API
+
+Express + Node.js
+
+Chart.js + react-chartjs-2
+
+Winston para logs
+
+web-push para notificações
+
+Axios para requisições
+
+PapaParse + FileSaver para CSV
+
+
+---
+
+Para baixar, clique ou abra o cartão abaixo com o arquivo `README.md`.  
+Se quiser, posso seguir comentando o próximo arquivo do projeto: `AdminPanel.jsx`. Deseja que eu continue?

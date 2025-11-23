@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="DB-252.26830.46">
+    <data-source name="db_postgresql_gloh@dpg-d4cui2ali9vc73c7un30-a.oregon-postgres.render.com" uuid="3e01a18c-c64a-43d9-b860-aa6bf947a8d9">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" />
+      <user-name>db_postgresql_gloh_user</user-name>
+      <schema-mapping />
+      <ssl-config use-ide-store="true" use-java-store="true" use-system-store="true">
+        <enabled>true</enabled>
+        <mode>REQUIRE</mode>
+      </ssl-config>
+    </data-source>
+  </component>
+</project>

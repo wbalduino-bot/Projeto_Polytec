@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Projeto Polytec</title>
+
+  <!-- TailwindCSS para estilização -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- ========================= -->
+  <!-- Tela de Login / Cadastro -->
+  <!-- ========================= -->
+  <div class="flex items-center justify-center min-h-screen" id="loginBox">
+    <div class="w-full max-w-md p-6 bg-white rounded shadow">
+      <h2 class="text-2xl font-bold mb-4 text-center">Login / Cadastro</h2>
+      <form id="loginForm" class="space-y-4">
+        <!-- Campo Nome (usado apenas no cadastro) -->
+        <input type="text" id="nome" placeholder="Nome completo" class="w-full px-4 py-2 border rounded"/>
+
+        <!-- Campo Email -->
+        <input type="email" id="email" placeholder="Email" required class="w-full px-4 py-2 border rounded"/>
+
+        <!-- Campo Senha -->
+        <input type="password" id="senha" placeholder="Senha" required class="w-full px-4 py-2 border rounded"/>
+
+        <!-- Botão de login -->
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Entrar</button>
+
+        <!-- Botão de cadastro -->
+        <button type="button" id="btnCadastrar" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 mt-2">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================= -->
+  <!-- Tela pós-login com menu   -->
+  <!-- ========================= -->
+  <div class="flex h-screen hidden" id="appPrincipal">
+    <!-- Menu lateral -->
+    <aside class="w-64 bg-gray-900 text-white flex flex-col">
+      <div class="p-4 font-bold text-lg border-b border-gray-700">
+        Projeto Polytec
+      </div>
+      <nav class="flex-1">
+        <ul class="space-y-2 mt-4">
+          <li>
+            <button id="btnDashboard" class="w-full text-left px-4 py-2 hover:bg-gray-700 rounded hidden" onclick="abrirFunc('dashboard')">
+              📊 Dashboard
+            </button>
+          </li>
+          <li>
+            <button id="btnUsuarios" class="w-full text-left px-4 py-2 hover:bg-gray-700 rounded hidden" onclick="abrirFunc('usuarios')">
+              👥 Vendedores
+            </button>
+          </li>
+          <li>
+            <button id="btnPedidos" class="w-full text-left px-4 py-2 hover:bg-gray-700 rounded hidden" onclick="abrirFunc('pedidos')">
+              🧾 Pedidos
+            </button>
+          </li>
+          <li>
+            <button id="btnRelatorios" class="w-full text-left px-4 py-2 hover:bg-gray-700 rounded hidden" onclick="abrirFunc('relatorios')">
+              📑 Relatórios
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div class="p-4 border-t border-gray-700">
+        <button onclick="logout()" class="w-full bg-red-600 hover:bg-red-700 py-2 rounded">Sair</button>
+      </div>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="flex-1 p-6 bg-gray-100 overflow-y-auto" id="conteudoPrincipal">
+      <h2 class="text-2xl font-bold mb-4">Bem-vindo!</h2>
+      <div id="dashboard" class="hidden">Aqui vai o gráfico de faturamento...</div>
+      <div id="usuarios" class="hidden">Aqui vai a gestão de vendedores...</div>
+      <div id="pedidos" class="hidden">Aqui vai a lista de pedidos...</div>
+      <div id="relatorios" class="hidden">Aqui vão os relatórios...</div>
+    </main>
+  </div>
+
+  <!-- ========================= -->
+  <!-- Scripts de controle       -->
+  <!-- ========================= -->
+  <script>
+    const loginForm = document.getElementById("loginForm"),
+          loginBox = document.getElementById("loginBox"),
+          appPrincipal = document.getElementById("appPrincipal"),
+          btnCadastrar = document.getElementById("btnCadastrar");
+
+    // Alterna entre seções do menu
+    function abrirFunc(func) {
+      document.querySelectorAll("#conteudoPrincipal > div").forEach(div => div.classList.add("hidden"));
+      document.getElementById(func).classList.remove("hidden");
+    }
+
+    // Função de logout
+    function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("perfil");
+      appPrincipal.classList.add("hidden");
+      loginBox.classList.remove("hidden");
+    }
+
+    // Evento de login
+    loginForm.addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value,
+            senha = document.getElementById("senha").value;
+
+      const resposta = await fetch("https://projeto-polytec-1.onrender.com/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, senha })
+      });
+
+      const resultado = await resposta.json();
+
+      if (resultado.token) {
+        localStorage.setItem("token", resultado.token);
+        localStorage.setItem("perfil", resultado.usuario.perfil);
+
+        loginBox.classList.add("hidden");
+        appPrincipal.classList.remove("hidden");
+
+        carregarMenu();
+        abrirFunc("dashboard"); // abre dashboard por padrão
+      } else {
+        alert(resultado.error || "Login inválido");
+      }
+    });
+
+    // Evento de cadastro
+    btnCadastrar.addEventListener("click", async () => {
+      const nome = document.getElementById("nome").value,
+            email = document.getElementById("email").value,
+            senha = document.getElementById("senha").value;
+
+      if (!nome) {
+        alert("Por favor, informe o nome completo.");
+        return;
+      }
+
+      const resposta = await fetch("https://projeto-polytec-1.onrender.com/api/auth/register", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token") // exige token de admin/gerente
+        },
+        body: JSON.stringify({ nome, email, senha })
+      });
+
+      const resultado = await resposta.json();
+
+      if (resultado.usuario) {
+        alert("Vendedor cadastrado com sucesso!");
+      } else {
+        alert(resultado.error || "Erro ao cadastrar vendedor");
+      }
+    });
+
+    // Ajusta menu conforme perfil do usuário
+    function carregarMenu() {
+      const perfil = localStorage.getItem("perfil");
+
+      // Todos veem Dashboard
+      document.getElementById("btnDashboard").classList.remove("hidden");
+
+      if (perfil === "admin") {
+        document.getElementById("btnUsuarios").classList.remove("hidden");
+        document.getElementById("btnPedidos").classList.remove("hidden");
+        document.getElementById("btnRelatorios").classList.remove("hidden");
+      } else if (perfil === "gerente") {
+        document.getElementById("btnUsuarios").classList.remove("hidden");
+        document.getElementById("btnPedidos").classList.remove("hidden");
+        document.getElementById("btnRelatorios").classList.remove("hidden");
+      } else {
+        // vendedor só vê pedidos e dashboard
+        document.getElementById("btnPedidos").classList.remove("hidden");
+      }
+    }
+
+    // Se já houver token salvo, mostrar app direto
+    if (localStorage.getItem("token")) {
+      loginBox.classList.add("hidden");
+      appPrincipal.classList.remove("hidden");
+      carregarMenu();
+      abrirFunc("dashboard");
+    }
+  </script>
+</body>
+</html>

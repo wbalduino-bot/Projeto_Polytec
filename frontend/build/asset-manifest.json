@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Projeto_Polytec/static/css/main.2a9a26f2.css",
+    "main.js": "/Projeto_Polytec/static/js/main.a1192167.js",
+    "static/js/239.34d43ede.chunk.js": "/Projeto_Polytec/static/js/239.34d43ede.chunk.js",
+    "static/js/977.2f9bb96e.chunk.js": "/Projeto_Polytec/static/js/977.2f9bb96e.chunk.js",
+    "static/js/455.91176a9f.chunk.js": "/Projeto_Polytec/static/js/455.91176a9f.chunk.js",
+    "index.html": "/Projeto_Polytec/index.html",
+    "main.2a9a26f2.css.map": "/Projeto_Polytec/static/css/main.2a9a26f2.css.map",
+    "main.a1192167.js.map": "/Projeto_Polytec/static/js/main.a1192167.js.map",
+    "239.34d43ede.chunk.js.map": "/Projeto_Polytec/static/js/239.34d43ede.chunk.js.map",
+    "977.2f9bb96e.chunk.js.map": "/Projeto_Polytec/static/js/977.2f9bb96e.chunk.js.map",
+    "455.91176a9f.chunk.js.map": "/Projeto_Polytec/static/js/455.91176a9f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a9a26f2.css",
+    "static/js/main.a1192167.js"
+  ]
+}

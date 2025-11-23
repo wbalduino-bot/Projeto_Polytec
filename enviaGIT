@@ -1,0 +1,6 @@
+git status              # ver o que mudou
+git add .               # adicionar mudanças
+git commit -m "Atulizacao dos modulos"
+git pull origin main    # atualizar com remoto
+git push origin main    # enviar suas mudanças
+

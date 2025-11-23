@@ -1,0 +1,36 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "chart.js": "^4.5.1",
+    "file-saver": "^2.0.5",
+    "papaparse": "^5.5.3",
+    "react": "^19.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^6.30.2",
+    "react-toastify": "^11.0.5",
+    "web-push": "^3.6.7",
+    "winston": "^3.18.3"
+  },
+  "name": "projeto_polytec",
+  "version": "1.0.0",
+  "description": "Sistema completo para gestão de boletos e pagamentos, com visualização de estatísticas e histórico. Este projeto é dividido em duas partes:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
