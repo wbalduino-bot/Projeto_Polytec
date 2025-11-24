@@ -33,7 +33,7 @@ const LoginForm = () => {
 
     try {
       // Faz requisição ao backend para autenticar usuário
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+      const response = await fetch("https://projeto-polytec-3.onrender.com/api/auth/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha }),
