@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.d4e56105.css",
-    "main.js": "./static/js/main.aa417ba6.js",
+    "main.js": "./static/js/main.1c4486cb.js",
     "static/js/239.34d43ede.chunk.js": "./static/js/239.34d43ede.chunk.js",
     "static/js/977.2f9bb96e.chunk.js": "./static/js/977.2f9bb96e.chunk.js",
     "static/js/455.aa4045db.chunk.js": "./static/js/455.aa4045db.chunk.js",
@@ -9,13 +9,13 @@
     "static/media/cropped-polytec-icone-2021-1.png": "./static/media/cropped-polytec-icone-2021-1.199edb6c0b011b848fc0.png",
     "index.html": "./index.html",
     "main.d4e56105.css.map": "./static/css/main.d4e56105.css.map",
-    "main.aa417ba6.js.map": "./static/js/main.aa417ba6.js.map",
+    "main.1c4486cb.js.map": "./static/js/main.1c4486cb.js.map",
     "239.34d43ede.chunk.js.map": "./static/js/239.34d43ede.chunk.js.map",
     "977.2f9bb96e.chunk.js.map": "./static/js/977.2f9bb96e.chunk.js.map",
     "455.aa4045db.chunk.js.map": "./static/js/455.aa4045db.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d4e56105.css",
-    "static/js/main.aa417ba6.js"
+    "static/js/main.1c4486cb.js"
   ]
 }
