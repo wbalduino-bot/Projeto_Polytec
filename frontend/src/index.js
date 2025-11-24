@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom/client';
 // 🧠 Importa tailwind.css
 import './styles/tailwind.css';
 
+import './index.css';
+
+
 // 🧠 Importa o AuthProvider para fornecer o contexto de autenticação
 import { AuthProvider } from './context/AuthContext';
 

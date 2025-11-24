@@ -27,7 +27,7 @@ const app = express();
 // Configuração de CORS para permitir acesso do frontend publicado
 // ⚠️ Boa prática: usar variável de ambiente FRONTEND_URL para flexibilidade
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "https://projeto-polytec-3.onrender.com/api", 
+  origin: process.env.FRONTEND_URL || "https://projeto-polytec-3.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
