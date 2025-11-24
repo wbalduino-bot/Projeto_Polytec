@@ -111,7 +111,7 @@ const App = () => {
   // 🎨 Renderização principal
   // ==========================
   return (
-    <ThemeProvider theme={getTheme(mode)}>
+    <ThemeProvider theme={getTheme('light')}>
       <CssBaseline />
       <HashRouter basename="/Projeto_Polytec">
         <Routes>
