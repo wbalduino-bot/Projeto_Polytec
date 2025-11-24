@@ -4,10 +4,10 @@
 // Representa os registros de pagamentos vinculados a pedidos.
 // Inclui informações sobre forma de pagamento, valor, status,
 // URL do boleto e flag de e-mail enviado.
+// ============================
 
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // importa a instância correta do Sequelize
-const Pedido = require('./Pedido');              // relacionamento com pedidos
+const sequelize = require('../config/database'); // instância do Sequelize
 
 const Pagamento = sequelize.define('Pagamento', {
   // 🔑 Chave primária
@@ -31,7 +31,7 @@ const Pagamento = sequelize.define('Pagamento', {
 
   // 💳 Forma de pagamento (boleto, cartão, pix, etc.)
   forma_pagamento: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(50),
     allowNull: false,
   },
 
@@ -50,7 +50,7 @@ const Pagamento = sequelize.define('Pagamento', {
 
   // 🔗 URL do boleto gerado (quando aplicável)
   boleto_url: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true,
   },
 
@@ -59,15 +59,26 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
+
+  // 🕒 Data de criação
+  created_at: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
+
+  // 🕒 Data de atualização
+  updated_at: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
 }, {
   tableName: 'pagamentos',
-  timestamps: true, // cria automaticamente createdAt e updatedAt
+  timestamps: false, // ⚠️ Desativamos timestamps automáticos
+  underscored: true, // garante nomes com underscore (created_at, updated_at)
 });
 
-// ============================
-// 🔗 Relacionamentos
-// ============================
-// Um pagamento pertence a um pedido
-Pagamento.belongsTo(Pedido, { foreignKey: 'pedido_id', as: 'pedido' });
+// ⚠️ Importante: não declarar belongsTo aqui.
+// Relacionamentos ficam centralizados em models/index.js
+// Isso evita duplicação de alias e erros de Sequelize.
 
 module.exports = Pagamento;

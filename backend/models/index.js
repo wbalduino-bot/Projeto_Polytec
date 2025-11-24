@@ -23,7 +23,8 @@ const Venda = require('./Vendas'); // 📊 Novo modelo de vendas
 // - Um Pedido pode ter vários Pagamentos
 // - Cada Pagamento pertence a um Pedido
 Pedido.hasMany(Pagamento, { foreignKey: 'pedido_id', as: 'pagamentos' });
-Pagamento.belongsTo(Pedido, { foreignKey: 'pedido_id', as: 'pedido' });
+Pagamento.belongsTo(Pedido, { foreignKey: 'pedido_id', as: 'pedidoPrincipal' });
+// 👆 Corrigido: alias único "pedidoPrincipal" para evitar conflito
 
 // Futuro: Venda ↔ Cliente (quando criarmos modelo Cliente)
 // Exemplo: Cliente.hasMany(Venda); Venda.belongsTo(Cliente);
