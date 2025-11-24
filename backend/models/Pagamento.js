@@ -7,6 +7,7 @@
 
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // importa a instância correta do Sequelize
+const Pedido = require('./Pedido');              // relacionamento com pedidos
 
 const Pagamento = sequelize.define('Pagamento', {
   // 🔑 Chave primária
@@ -16,7 +17,7 @@ const Pagamento = sequelize.define('Pagamento', {
     autoIncrement: true,
   },
 
-  // 🔗 Relacionamento com Pedido (FK)
+  // 🔗 Relacionamento com Pedido
   pedido_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -62,5 +63,11 @@ const Pagamento = sequelize.define('Pagamento', {
   tableName: 'pagamentos',
   timestamps: true, // cria automaticamente createdAt e updatedAt
 });
+
+// ============================
+// 🔗 Relacionamentos
+// ============================
+// Um pagamento pertence a um pedido
+Pagamento.belongsTo(Pedido, { foreignKey: 'pedido_id', as: 'pedido' });
 
 module.exports = Pagamento;
