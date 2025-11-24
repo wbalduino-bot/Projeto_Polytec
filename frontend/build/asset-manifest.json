@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/Projeto_Polytec/static/css/main.2a9a26f2.css",
-    "main.js": "/Projeto_Polytec/static/js/main.a1192167.js",
-    "static/js/239.34d43ede.chunk.js": "/Projeto_Polytec/static/js/239.34d43ede.chunk.js",
-    "static/js/977.2f9bb96e.chunk.js": "/Projeto_Polytec/static/js/977.2f9bb96e.chunk.js",
-    "static/js/455.91176a9f.chunk.js": "/Projeto_Polytec/static/js/455.91176a9f.chunk.js",
-    "index.html": "/Projeto_Polytec/index.html",
-    "main.2a9a26f2.css.map": "/Projeto_Polytec/static/css/main.2a9a26f2.css.map",
-    "main.a1192167.js.map": "/Projeto_Polytec/static/js/main.a1192167.js.map",
-    "239.34d43ede.chunk.js.map": "/Projeto_Polytec/static/js/239.34d43ede.chunk.js.map",
-    "977.2f9bb96e.chunk.js.map": "/Projeto_Polytec/static/js/977.2f9bb96e.chunk.js.map",
-    "455.91176a9f.chunk.js.map": "/Projeto_Polytec/static/js/455.91176a9f.chunk.js.map"
+    "main.css": "./static/css/main.d4e56105.css",
+    "main.js": "./static/js/main.aa417ba6.js",
+    "static/js/239.34d43ede.chunk.js": "./static/js/239.34d43ede.chunk.js",
+    "static/js/977.2f9bb96e.chunk.js": "./static/js/977.2f9bb96e.chunk.js",
+    "static/js/455.aa4045db.chunk.js": "./static/js/455.aa4045db.chunk.js",
+    "static/media/logo-home-social.jpg": "./static/media/logo-home-social.58b69326a66a6b1fa683.jpg",
+    "static/media/cropped-polytec-icone-2021-1.png": "./static/media/cropped-polytec-icone-2021-1.199edb6c0b011b848fc0.png",
+    "index.html": "./index.html",
+    "main.d4e56105.css.map": "./static/css/main.d4e56105.css.map",
+    "main.aa417ba6.js.map": "./static/js/main.aa417ba6.js.map",
+    "239.34d43ede.chunk.js.map": "./static/js/239.34d43ede.chunk.js.map",
+    "977.2f9bb96e.chunk.js.map": "./static/js/977.2f9bb96e.chunk.js.map",
+    "455.aa4045db.chunk.js.map": "./static/js/455.aa4045db.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a9a26f2.css",
-    "static/js/main.a1192167.js"
+    "static/css/main.d4e56105.css",
+    "static/js/main.aa417ba6.js"
   ]
 }
